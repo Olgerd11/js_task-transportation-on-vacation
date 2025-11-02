@@ -4,17 +4,20 @@
  * @return {number}
  */
 function calculateRentalCost(days) {
-  const totalSum = days * 40;
-  const DAY3DISCOUNT = 20;
-  const DAY7DISCOUNT = 50;
-  const total3DaySum = totalSum - DAY3DISCOUNT;
-  const total7DaySum = totalSum - DAY7DISCOUNT;
+  const SUM_PER_DAY = 40;
+  const DAY_3_DISCOUNT = 20;
+  const DAY_7_DISCOUNT = 50;
+  const FIRST_BOUNDARY = 7;
+  const SECOND_BOUNDARY = 3;
+  const totalSum = days * SUM_PER_DAY;
+  const total3DaySum = totalSum - DAY_3_DISCOUNT;
+  const total7DaySum = totalSum - DAY_7_DISCOUNT;
 
-  if (days >= 7) {
+  if (days >= FIRST_BOUNDARY) {
     return total7DaySum;
   }
 
-  if (days >= 3) {
+  if (days >= SECOND_BOUNDARY) {
     return total3DaySum;
   }
 
